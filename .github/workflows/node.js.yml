@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Simple CI Check
 
 on:
   push:
@@ -9,9 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22.x
-      - run: npm install
-      - run: npm run build
-      - run: ls dist/
+      
+      - name: Show Date
+        run: date
+        
+      - name: List Repository Files
+        run: ls -la
+        
+      - name: Success Message
+        run: echo "✅ GitHub Actions Workflow Completed Successfully!"
